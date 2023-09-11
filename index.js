@@ -35,8 +35,6 @@ const config = {hosts: '127.0.0.1:3000', useAlternateAccessAddress: true,};
 
 
 
-//create a aerospike reslover query for getting a userid from Aerospike database
-
 
 
 const resolvers = {
@@ -61,7 +59,7 @@ const resolvers = {
             try {
                 let client = await Aerospike.connect(config);
                 const users = [];
-                const scan = client.scan('test', 'users'); // 'test' is the namespace, 'users' is the set
+                const scan = client.scan('test', 'users'); 
                 const stream = scan.foreach();
 
                 return new Promise((resolve, reject) => {
